@@ -32,9 +32,6 @@ def player_turn(request, col):
 
 class Connect4ViewSet(viewsets.ViewSet):
 
-    def list(self, request):
-        return Response(request.session.get("moves"))
-
     def create(self, request):
         if request.data.get("action") == "START":
             reset_game(request)
@@ -48,3 +45,8 @@ class Connect4ViewSet(viewsets.ViewSet):
                 return Response("{} Wins".format(result))
         return Response("Invalid move",status=status.HTTP_400_BAD_REQUEST)
         
+
+class Connect4MovesViewSet(viewsets.ViewSet):
+
+    def list(self, request):
+        return Response(request.session.get("moves"))
