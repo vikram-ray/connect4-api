@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .utils import check_winner
 
 def reset_game(request):
-    request.session["player"] = "Red"
+    request.session["player"] = "Yellow"
     request.session['moves'] = []
     board = [["" for i in range(6)] for j in range(7)]
     request.session["board"] = board
