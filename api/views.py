@@ -1,8 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
-from connect4.settings import vikram
-
 from .utils import check_winner
 
 def reset_game(request):
